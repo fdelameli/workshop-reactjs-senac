@@ -14,6 +14,8 @@ export default function Dashboard() {
     if (storageRepositories) {
       return JSON.parse(storageRepositories);
     }
+
+    return [];
   });
 
   async function addProfile(event) {

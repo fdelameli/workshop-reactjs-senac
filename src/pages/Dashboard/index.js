@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi'
 
 import api from '../../services/api';
@@ -53,10 +54,10 @@ export default function Dashboard() {
 
       { inputError &&  <p id="error-message">{inputError}</p> }
 
-      <div className="profiles">
+      <div className="content">
         {
           profiles.map(profile => (
-            <a key={profile.id} href="#">
+            <Link key={profile.id} to={`/repository/${profile.login}`}>
               <img
                 src={profile.avatar_url}
                 alt={profile.name}
@@ -65,8 +66,8 @@ export default function Dashboard() {
                 <strong>{profile.name}</strong>
                 <p>{profile.bio}</p>
               </div>
-              <FiChevronRight size={20} />
-            </a>
+              <FiChevronRight size={24} />
+            </Link>
           ))
         }
       </div>
